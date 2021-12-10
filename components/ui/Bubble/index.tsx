@@ -33,7 +33,7 @@ const Bubble = ({ text, inView = true, delay = 0 }: Props) => {
   return (
     <motion.span
       animate={animation}
-      className="py-1 px-2 text-xs font-semibold text-white bg-primary_light leading-[17px] m-[2px] rounded-[4px]"
+      className="py-1 px-2 text-xs font-semibold text-white bg-primary_light dark:bg-primary_dark leading-[17px] m-[2px] rounded-[4px]"
     >
       {text}
     </motion.span>

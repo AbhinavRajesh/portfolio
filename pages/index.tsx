@@ -10,7 +10,7 @@ import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-white dark:bg-black h-[100vh] font-inter">
+    <div className="bg-white dark:bg-[#202124] h-[100vh] font-inter">
       <HeadMeta
         title="Abhinav Rajesh | Full Stack Developer Portfolio"
         description="This is a collection of websites and web apps that help demonstrate Abhinav's skills and abilities as a web developer."
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         url=""
       />
       <Navbar />
-      <div className="flex flex-col px-4 mt-[86px] text-dark">
+      <div className="flex flex-col px-4 pt-[86px] text-dark dark:text-white">
         <About />
         <Education />
         <Work />

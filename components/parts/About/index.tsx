@@ -9,8 +9,9 @@ const About = () => {
       <AboutSection
         content={[
           <div key="hero">
-            Hey, I’m Abhinav Rajesh. I’m a passionate UI/ UX Designer and{" "}
-            <span className="font-bold text-primary_light">
+            Hey, I&apos;m Abhinav Rajesh. I&apos;m a passionate UI/ UX Designer
+            and{" "}
+            <span className="font-bold text-primary_light dark:text-primary_dark">
               Full Stack Developer
             </span>{" "}
             based in India. Web development has transformed from a spark of
@@ -22,10 +23,15 @@ const About = () => {
       <AboutSection
         content={[
           <div key="hero">
-            I{"'"}m currently pursuing my bachelor{"'"}s degree from{" "}
-            <span className="font-bold text-primary_light">
+            I&apos;m currently pursuing my bachelor&apos;s degree from{" "}
+            <a
+              href="https://soe.cusat.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-primary_light dark:text-primary_dark"
+            >
               School of Engineering, CUSAT, India
-            </span>{" "}
+            </a>{" "}
             and expected to graduate on 2023. I have always wanted to work and
             grow with a team of like minded and passionate creatives.
           </div>,
@@ -42,7 +48,14 @@ const About = () => {
         content={[
           <div key="hero">
             I occationally write about technology at my{" "}
-            <span className="font-bold text-primary_light">blog.</span>
+            <a
+              href="https://blog.abhinavrajesh.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-primary_light dark:text-primary_dark"
+            >
+              blog.
+            </a>
           </div>,
         ]}
         delay={0.3}
@@ -53,24 +66,24 @@ const About = () => {
             You can find me on{" "}
             <a
               href="https://twitter.com/_AbhinavRajesh_"
-              className="font-bold text-primary_light"
+              className="font-bold text-primary_light dark:text-primary_dark"
             >
               Twitter
             </a>{" "}
             where I talk about technology, or on{" "}
             <a
               href="https://github.com/AbhinavRajesh"
-              className="font-bold text-primary_light"
+              className="font-bold text-primary_light dark:text-primary_dark"
             >
               Github
             </a>{" "}
-            where I’m building in the open.
+            where I&apos;m building in the open.
           </div>,
         ]}
         delay={0.4}
       />
       <motion.div
-        className="flex mt-[28px] text-[14px]"
+        className="flex mt-[28px] text-[14px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full"
         transition={{
           duration: 0.3,
           delay: 0.5,

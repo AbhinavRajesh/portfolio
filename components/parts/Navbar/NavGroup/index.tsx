@@ -8,7 +8,7 @@ interface Props {
 const NavGroup = ({ groupName, navItems }: Props) => {
   return (
     <div className="flex flex-col">
-      <div className="flex items-center px-4 font-semibold text-light_gray text-[12px] py-[10px]">
+      <div className="flex items-center px-4 tablet:px-8 font-semibold text-light_gray text-[12px] py-[10px]">
         <span className="mr-[6px]">{groupName}</span>
         <span className="h-[1px] bg-dark w-full"></span>
       </div>

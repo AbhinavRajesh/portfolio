@@ -43,7 +43,10 @@ const Education = () => {
   }, [inView]);
 
   return (
-    <div ref={ref} className="flex flex-col mt-[52px]">
+    <div
+      ref={ref}
+      className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full"
+    >
       <motion.h2 className="text-lg font-bold text-black" animate={animation}>
         Education
       </motion.h2>

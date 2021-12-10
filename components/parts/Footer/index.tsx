@@ -5,7 +5,7 @@ import Logo from "@public/assets/logo-gray.svg";
 const Footer = () => {
   return (
     <div className="flex flex-col px-4 shadow-inverse-sm mt-[52px]">
-      <div className="flex mt-[28px] justify-between items-start">
+      <div className="flex mt-[28px] justify-between items-start tablet:max-w-[650px] tablet:mx-auto tablet:w-full">
         <div className="flex flex-col items-start flex-[2]">
           <Image src={Logo} alt="AR" />
           <small className="text-[12px]">UI/UX Designer</small>

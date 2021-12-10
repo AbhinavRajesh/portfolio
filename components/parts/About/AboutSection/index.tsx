@@ -21,7 +21,7 @@ const AboutSection = ({ content, delay }: Props) => {
         y: 0,
         opacity: 1,
       }}
-      className="mt-[28px]"
+      className="mt-[28px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full"
     >
       {content}
     </motion.div>

@@ -19,6 +19,10 @@ module.exports = {
       inter: "Inter, sans-serif",
     },
     extend: {
+      screens: {
+        tablet: "768px",
+        desktop: "1248px",
+      },
       colors: {
         primary_light: "#2D89DE",
         primary_dark: "#3AB7B7",

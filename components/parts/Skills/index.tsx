@@ -72,7 +72,10 @@ const Skills = () => {
   }, [inView]);
 
   return (
-    <div ref={ref} className="flex flex-col mt-[52px]">
+    <div
+      ref={ref}
+      className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full"
+    >
       <motion.h2 animate={animation} className="text-lg font-bold text-black">
         I{"'"}m good at
       </motion.h2>

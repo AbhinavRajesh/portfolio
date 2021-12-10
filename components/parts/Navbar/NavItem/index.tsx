@@ -19,13 +19,13 @@ const NavItem = ({ name, icon, externalLink, to }: NavProps) => {
         rel="noopener noreferrer"
         className="flex items-center justify-between"
       >
-        <span className="px-4 my-1 flex items-center font-bold text-dark">
+        <span className="px-4 tablet:px-8 my-1 flex items-center font-bold text-dark">
           <span className="mr-[6px] flex items-center justify-center">
             <Image src={icon} alt={name} height={14} width={14} />
           </span>
           <span>{name}</span>
         </span>
-        <span className="pr-4 flex items-center justify-center">
+        <span className="pr-4 tablet:pr-8 flex items-center justify-center">
           <Image src={ExternalLink} alt="Link" />
         </span>
       </a>
@@ -33,7 +33,7 @@ const NavItem = ({ name, icon, externalLink, to }: NavProps) => {
 
   return (
     <Link href={to}>
-      <a className="px-4 my-1 font-bold text-dark flex items-center">
+      <a className="px-4 tablet:px-8 my-1 font-bold text-dark flex items-center">
         <span className="mr-[6px] flex items-center justify-center">
           <Image src={icon} alt={name} height={14} width={14} />
         </span>

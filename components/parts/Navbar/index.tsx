@@ -93,9 +93,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center fixed bg-white top-0 left-0 shadow-sm px-4">
+      <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center fixed bg-white dark:bg-[#202124] top-0 left-0 shadow-sm px-4 tablet:px-[32px]">
         <div
-          className="flex flex-col absolute left-[16px]"
+          className="flex flex-col absolute left-[16px] tablet:left-[32px]"
           onClick={toggleSidebar}
         >
           <span className="h-[2px] w-[16px] bg-dark"></span>
@@ -120,13 +120,14 @@ const Navbar = () => {
         <motion.div
           className="absolute w-full h-full top-0 left-0"
           animate={{
-            width: sidebarVisible ? "100%" : 0,
+            opacity: sidebarVisible ? 1 : 0,
             background: sidebarVisible
-              ? "rgba(0, 0, 0, 0.5)"
+              ? "rgba(0, 0, 0, 0.2)"
               : "rgb(255, 255, 255)",
           }}
           transition={{
-            delay: sidebarVisible ? 0 : 0.3,
+            delay: sidebarVisible ? 0.15 : 0,
+            duration: sidebarVisible ? 0.3 : 0,
             type: "tween",
           }}
           onClick={() => setSidebarVisible(false)}
@@ -134,7 +135,7 @@ const Navbar = () => {
         <motion.div className="flex text-xs flex-col w-[320px] bg-white h-full z-10 absolute left-0 top-0 px-4">
           <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center">
             <div
-              className="flex flex-col absolute left-[16px] text-xl"
+              className="flex flex-col absolute left-[16px] tablet:left-[32px] text-xl"
               onClick={toggleSidebar}
             >
               &times;
