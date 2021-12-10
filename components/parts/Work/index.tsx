@@ -1,6 +1,6 @@
 import Card from "@components/ui/Card";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 const workExperience: Parameters<typeof Card>[0][] = [
@@ -25,11 +25,14 @@ const workExperience: Parameters<typeof Card>[0][] = [
 ];
 
 const Work = () => {
+  const [loaded, setLoaded] = useState<boolean>(false);
   const { ref, inView } = useInView();
   const animation = useAnimation();
 
   useEffect(() => {
+    if (loaded) return;
     if (inView) {
+      setLoaded(true);
       animation.start({
         y: 0,
         opacity: 1,
@@ -52,7 +55,10 @@ const Work = () => {
       ref={ref}
       className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full"
     >
-      <motion.h2 className="text-lg font-bold text-black" animate={animation}>
+      <motion.h2
+        className="text-lg font-bold text-black dark:text-white"
+        animate={animation}
+      >
         Work Experience
       </motion.h2>
       {workExperience?.map(({ title, value, description, extras }, i) => (

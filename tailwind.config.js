@@ -28,6 +28,7 @@ module.exports = {
         primary_dark: "#3AB7B7",
         dark: "#404040",
         light_gray: "#646464",
+        text_dark: "#a3a3a3",
       },
       boxShadow: {
         "inverse-sm": "0 -1px 2px 0 rgba(0, 0, 0, 0.05)",

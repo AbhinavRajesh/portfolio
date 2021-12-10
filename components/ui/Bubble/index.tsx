@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   text: string;
@@ -8,10 +8,13 @@ interface Props {
 }
 
 const Bubble = ({ text, inView = true, delay = 0 }: Props) => {
+  const [loaded, setLoaded] = useState<boolean>(false);
   const animation = useAnimation();
 
   useEffect(() => {
+    if (loaded) return;
     if (inView) {
+      setLoaded(true);
       animation.start({
         y: 0,
         opacity: 1,

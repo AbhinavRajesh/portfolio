@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   title: string | JSX.Element;
@@ -18,10 +18,13 @@ const Card = ({
   inView,
   delay = 0,
 }: Props) => {
+  const [loaded, setLoaded] = useState<boolean>(false);
   const animation = useAnimation();
 
   useEffect(() => {
+    if (loaded) return;
     if (inView) {
+      setLoaded(true);
       animation.start({
         y: 0,
         opacity: 1,
@@ -43,8 +46,10 @@ const Card = ({
   return (
     <motion.div animate={animation} className="flex flex-col mt-[24px]">
       <div className="flex items-start justify-between">
-        <span className="text-sm font-medium text-black">{title}</span>
-        <span className="text-xs font-medium text-dark leading-[19px]">
+        <span className="text-sm font-medium text-black dark:text-white">
+          {title}
+        </span>
+        <span className="text-xs font-medium text-dark dark:text-text_dark leading-[19px]">
           {value}
         </span>
       </div>

@@ -93,9 +93,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center fixed bg-white dark:bg-[#202124] top-0 left-0 shadow-sm px-4 tablet:px-[32px]">
+      <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center fixed bg-white dark:bg-[#202124] top-0 left-0 shadow-sm dark:shadow-light_gray px-4 tablet:px-[32px]">
         <div
-          className="flex flex-col absolute left-[16px] tablet:left-[32px]"
+          className="flex flex-col absolute left-[16px] tablet:left-[32px] cursor-pointer"
           onClick={toggleSidebar}
         >
           <span className="h-[2px] w-[16px] bg-dark"></span>
@@ -132,10 +132,10 @@ const Navbar = () => {
           }}
           onClick={() => setSidebarVisible(false)}
         ></motion.div>
-        <motion.div className="flex text-xs flex-col w-[320px] bg-white h-full z-10 absolute left-0 top-0 px-4">
+        <motion.div className="flex text-xs flex-col w-[320px] bg-white dark:bg-[#202124] dark:text-text_dark h-full z-10 absolute left-0 top-0 px-4">
           <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center">
             <div
-              className="flex flex-col absolute left-[16px] tablet:left-[32px] text-xl"
+              className="flex flex-col absolute left-[16px] tablet:left-[32px] text-xl cursor-pointer"
               onClick={toggleSidebar}
             >
               &times;
@@ -146,7 +146,7 @@ const Navbar = () => {
           <NavItem
             icon={BlogIcon}
             name="Blog"
-            to="https://blog.abhinavrajesh.xyz"
+            to="https://blog.abhinavrajesh.com"
             externalLink={true}
           />
           {navGroupItems.map((navGroup, i) => (

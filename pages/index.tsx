@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         url=""
       />
       <Navbar />
-      <div className="flex flex-col px-4 pt-[86px] text-dark dark:text-white">
+      <div className="flex flex-col px-4 pt-[86px] text-dark dark:text-text_dark dark:bg-[#202124]">
         <About />
         <Education />
         <Work />
