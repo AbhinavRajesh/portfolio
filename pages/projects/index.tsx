@@ -8,7 +8,7 @@ import Navbar from "@components/parts/Navbar";
 import { projects } from "@lib/data";
 import ProjectCard from "@components/parts/ProjectCard";
 
-const Project = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Projects = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className="bg-white dark:bg-[#202124] h-[100vh] font-inter">
       <HeadMeta
@@ -142,4 +142,4 @@ export async function getStaticProps() {
   }
 }
 
-export default Project;
+export default Projects;
