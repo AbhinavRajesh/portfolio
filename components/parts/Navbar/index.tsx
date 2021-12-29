@@ -31,19 +31,19 @@ const navGroupItems: NavGroupItemsProps[] = [
         name: "Chatbotish",
         icon: ChatbotishIcon,
         externalLink: false,
-        to: "/projects/chatbotish",
+        to: "/projects/Chatbotish",
       },
       {
         name: "Aura",
         icon: AuraIcon,
         externalLink: false,
-        to: "/projects/aura",
+        to: "/projects/Aura",
       },
       {
         name: "Sahaay",
         icon: SahaayIcon,
         externalLink: false,
-        to: "/projects/sahaay",
+        to: "/projects/Sahaay",
       },
       {
         name: "View all projects",
