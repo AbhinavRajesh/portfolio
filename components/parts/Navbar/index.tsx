@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import Logo from "@public/assets/logo-gray.svg";
 import NavItem, { NavProps } from "./NavItem";
 import NavGroup from "./NavGroup";
 
@@ -17,6 +16,7 @@ import GithubIcon from "@public/icons/github.svg";
 import TwitterIcon from "@public/icons/twitter.svg";
 import LinkedInIcon from "@public/icons/linkedin.svg";
 import GoogleIcon from "@public/icons/google.svg";
+import Logo from "@components/ui/Logo";
 
 interface NavGroupItemsProps {
   groupName: string;
@@ -93,16 +93,16 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center fixed bg-white dark:bg-[#202124] top-0 left-0 shadow-sm dark:shadow-light_gray px-4 tablet:px-[32px]">
+      <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center fixed bg-white dark:bg-black top-0 left-0 shadow-sm dark:shadow-light_gray px-4 tablet:px-[32px]">
         <div
           className="flex flex-col absolute left-[16px] tablet:left-[32px] cursor-pointer"
           onClick={toggleSidebar}
         >
-          <span className="h-[2px] w-[16px] bg-dark"></span>
-          <span className="h-[2px] w-[16px] bg-dark mt-[2px]"></span>
-          <span className="h-[2px] w-[16px] bg-dark mt-[2px]"></span>
+          <span className="h-[2px] w-[16px] bg-black dark:bg-white"></span>
+          <span className="h-[2px] w-[16px] bg-black dark:bg-white mt-[2px]"></span>
+          <span className="h-[2px] w-[16px] bg-black dark:bg-white mt-[2px]"></span>
         </div>
-        <Image src={Logo} alt="AR" height={39} width={39} />
+        <Logo />
       </div>
       <motion.div
         className="z-40 fixed top-0 left-0 h-screen overflow-x-hidden w-screen"
@@ -113,7 +113,7 @@ const Navbar = () => {
           x: sidebarVisible ? 0 : "-100vw",
         }}
         transition={{
-          duration: 0.3,
+          duration: sidebarVisible ? 0.3 : 0,
           type: "tween",
         }}
       >
@@ -121,9 +121,7 @@ const Navbar = () => {
           className="absolute w-full h-full top-0 left-0"
           animate={{
             opacity: sidebarVisible ? 1 : 0,
-            background: sidebarVisible
-              ? "rgba(0, 0, 0, 0.2)"
-              : "rgb(255, 255, 255)",
+            background: sidebarVisible ? "rgba(0, 0, 0, 0.8)" : "rgb(0, 0, 0)",
           }}
           transition={{
             delay: sidebarVisible ? 0.15 : 0,
@@ -132,15 +130,15 @@ const Navbar = () => {
           }}
           onClick={() => setSidebarVisible(false)}
         ></motion.div>
-        <motion.div className="flex text-xs flex-col w-[320px] bg-white dark:bg-[#202124] dark:text-text_dark h-full z-10 absolute left-0 top-0 px-4">
+        <motion.div className="flex text-xs flex-col w-[320px] bg-white dark:bg-gradient-to-t dark:from-[#111827] dark:to-black h-full z-10 absolute left-0 top-0 px-4">
           <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center">
             <div
-              className="flex flex-col absolute left-[16px] tablet:left-[32px] text-xl cursor-pointer"
+              className="flex flex-col absolute left-[16px] tablet:left-[32px] text-xl cursor-pointer text-black dark:text-white"
               onClick={toggleSidebar}
             >
               &times;
             </div>
-            <Image src={Logo} alt="AR" height={39} width={39} />
+            <Logo />
           </div>
           <NavItem icon={HomeIcon} name="Home" to="/" externalLink={false} />
           <NavItem

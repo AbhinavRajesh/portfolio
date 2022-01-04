@@ -22,7 +22,7 @@ const Projects = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <div className="flex flex-col px-4 pt-[46px] text-dark dark:text-text_dark dark:bg-[#202124]">
         <div className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full">
           <motion.h2
-            className="text-lg font-bold text-black dark:text-white"
+            className="text-xl font-bold text-black dark:text-white"
             transition={{
               duration: 0.3,
               delay: 0,

@@ -81,9 +81,9 @@ const Skills = () => {
     >
       <motion.h2
         animate={animation}
-        className="text-lg font-bold text-black dark:text-white"
+        className="text-xl font-bold text-black dark:text-white"
       >
-        I&apos;m good at
+        Technologies I&apos;m good at
       </motion.h2>
       <div className="flex flex-wrap mt-6">
         {skills?.map((skill, i) => (

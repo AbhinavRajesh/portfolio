@@ -1,14 +1,12 @@
-import Image from "next/image";
-
-import Logo from "@public/assets/logo-gray.svg";
+import Logo from "@components/ui/Logo";
 
 const Footer = () => {
   return (
-    <div className="pt-[52px] dark:bg-[#202124]">
+    <div className="pt-[52px] -mx-4">
       <div className="flex flex-col px-4 shadow-inverse-sm dark:shadow-light_gray dark:text-text_dark">
         <div className="flex mt-[28px] justify-between items-start tablet:max-w-[650px] tablet:mx-auto tablet:w-full">
           <div className="flex flex-col items-start flex-[2]">
-            <Image src={Logo} alt="AR" />
+            <Logo />
             <small className="text-[12px]">UI/UX Designer</small>
             <small className="text-[12px]">Full Stack Developer</small>
           </div>

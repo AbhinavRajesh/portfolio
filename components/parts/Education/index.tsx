@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const education: Parameters<typeof Card>[0][] = [
   {
     title: "B.Tech in CSE",
-    value: "9.17 GPA",
+    value: "9 GPA",
     description: "School Of Engineering, CUSAT, India",
     extras: "2019-23",
   },
@@ -51,7 +51,7 @@ const Education = () => {
       className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full"
     >
       <motion.h2
-        className="text-lg font-bold text-black dark:text-white"
+        className="text-xl font-bold text-black dark:text-white"
         animate={animation}
       >
         Education

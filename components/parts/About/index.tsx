@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-
+import { SiGithub, SiTwitter } from "react-icons/si";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 import Button from "@components/ui/Button";
 import AboutSection from "./AboutSection";
 
@@ -9,8 +10,25 @@ const About = () => {
       <AboutSection
         content={[
           <div key="hero">
-            Hey, I&apos;m Abhinav Rajesh. I&apos;m a passionate UI/ UX Designer
-            and{" "}
+            <div className="flex items-center space-x-3 mb-[12px] text-black dark:text-white">
+              <a href="https://github.com/AbhinavRajesh">
+                <SiGithub className="w-7 h-7" />
+              </a>
+              <a href="https://twitter.com/_AbhinavRajesh_">
+                <SiTwitter className="w-7 h-7" />
+              </a>
+              <span className="flex items-center px-[12px] py-[4px] rounded-full bg-slate-200 text-black">
+                <HiOutlineLocationMarker className="w-5 h-5 mr-[5px]" />
+                <span>Kerala, India</span>
+              </span>
+            </div>
+            <h1 className="text-xl md:text-2xl mb-[30px] font-bold">
+              Hey, I&apos;m{" "}
+              <span className="text-primary_light dark:text-primary_dark">
+                Abhinav Rajesh
+              </span>
+            </h1>
+            I&apos;m a passionate UI/ UX Designer and{" "}
             <span className="font-bold text-primary_light dark:text-primary_dark">
               Full Stack Developer
             </span>{" "}
@@ -28,7 +46,7 @@ const About = () => {
               href="https://soe.cusat.ac.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-primary_light dark:text-primary_dark"
+              className="font-bold text-primary_light hover:text-blue-400 transition-colors duration-150 ease-in dark:text-primary_dark"
             >
               School of Engineering, CUSAT, India
             </a>{" "}
@@ -52,7 +70,7 @@ const About = () => {
               href="https://blog.abhinavrajesh.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-primary_light dark:text-primary_dark"
+              className="font-bold text-primary_light hover:text-blue-400 transition-colors duration-150 ease-in dark:text-primary_dark"
             >
               blog.
             </a>
@@ -66,14 +84,14 @@ const About = () => {
             You can find me on{" "}
             <a
               href="https://twitter.com/_AbhinavRajesh_"
-              className="font-bold text-primary_light dark:text-primary_dark"
+              className="font-bold text-primary_light hover:text-blue-400 transition-colors duration-150 ease-in dark:text-primary_dark"
             >
               Twitter
             </a>{" "}
             where I talk about technology, or on{" "}
             <a
               href="https://github.com/AbhinavRajesh"
-              className="font-bold text-primary_light dark:text-primary_dark"
+              className="font-bold text-primary_light hover:text-blue-400 transition-colors duration-150 ease-in dark:text-primary_dark"
             >
               Github
             </a>{" "}

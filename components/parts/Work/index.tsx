@@ -12,7 +12,7 @@ const workExperience: Parameters<typeof Card>[0][] = [
           href="https://growth.cx"
           target="_blank"
           rel="noopener noreferrer"
-          className="m-0 leading-[17px] text-xs font-bold text-primary_light"
+          className="m-0 leading-[17px] text-xs font-bold text-primary_light hover:text-blue-400 transition-colors duration-150 ease-in"
         >
           @Growth.CX
         </a>
@@ -56,7 +56,7 @@ const Work = () => {
       className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full"
     >
       <motion.h2
-        className="text-lg font-bold text-black dark:text-white"
+        className="text-xl font-bold text-black dark:text-white"
         animate={animation}
       >
         Work Experience

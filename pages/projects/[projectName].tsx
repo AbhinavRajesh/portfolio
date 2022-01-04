@@ -82,9 +82,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       gifUrl = data.data?.images?.original?.url;
       const id = gifUrl.split("/")[gifUrl.split("/").length - 2];
       const present = gifs.gifs.find((url) => url.includes(id));
-      if (present) throw Error("Duplicate");
-      gifs.gifs.push(gifUrl);
-      fs.writeFileSync("lib/gifs.json", JSON.stringify(gifs, null, 4));
+      if (!present) {
+        gifs.gifs.push(gifUrl);
+        fs.writeFileSync("lib/gifs.json", JSON.stringify(gifs, null, 4));
+      }
     })
     .catch((err) => {
       console.log(err);
