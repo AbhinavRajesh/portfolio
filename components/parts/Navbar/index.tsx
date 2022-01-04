@@ -93,7 +93,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center fixed bg-white dark:bg-black top-0 left-0 shadow-sm dark:shadow-light_gray px-4 tablet:px-[32px]">
+      <div className="z-10 max-h-[54px] w-full h-full flex items-center justify-center fixed bg-white dark:bg-black top-0 left-0 shadow-sm dark:shadow-[#eeeeee3d] px-4 tablet:px-[32px]">
         <div
           className="flex flex-col absolute left-[16px] tablet:left-[32px] cursor-pointer"
           onClick={toggleSidebar}

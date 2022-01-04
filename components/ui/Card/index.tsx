@@ -46,7 +46,7 @@ const Card = ({
   return (
     <motion.div animate={animation} className="flex flex-col mt-[24px]">
       <div className="flex items-start justify-between">
-        <span className="text-sm font-medium text-black dark:text-white">
+        <span className="text-sm font-semibold text-black dark:text-white">
           {title}
         </span>
         <span className="text-xs font-medium text-dark dark:text-text_dark leading-[19px]">

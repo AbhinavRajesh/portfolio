@@ -35,13 +35,12 @@ const ProjectCard = ({
   const router = useRouter();
 
   const handleClick = () => {
-    // Disabled till next update
     router.push(`/projects/${name}`);
   };
 
   return (
     <div onClick={handleClick} className="cursor-pointer">
-      <div className="flex flex-col shadow rounded-[20px]">
+      <div className="flex flex-col shadow dark:shadow-[#eeeeee3b] rounded-[20px]">
         <div className="relative w-full">
           <Image
             src={image}

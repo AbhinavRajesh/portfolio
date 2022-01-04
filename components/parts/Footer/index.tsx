@@ -3,7 +3,7 @@ import Logo from "@components/ui/Logo";
 const Footer = () => {
   return (
     <div className="pt-[52px] -mx-4">
-      <div className="flex flex-col px-4 shadow-inverse-sm dark:shadow-light_gray dark:text-text_dark">
+      <div className="flex flex-col px-4 shadow-inverse-sm dark:shadow-[#eeeeee3d] dark:text-text_dark">
         <div className="flex mt-[28px] justify-between items-start tablet:max-w-[650px] tablet:mx-auto tablet:w-full">
           <div className="flex flex-col items-start flex-[2]">
             <Logo />

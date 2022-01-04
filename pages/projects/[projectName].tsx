@@ -18,7 +18,7 @@ const Project: InferGetStaticPropsType<typeof getStaticProps> = ({
   gifUrl: string;
 }) => {
   return (
-    <div className="bg-white dark:bg-[#202124] h-[100vh] font-inter">
+    <div className="h-[100vh] font-inter">
       <HeadMeta
         title={`${data?.title} | Abhinav Rajesh`}
         description={data?.description ?? ""}
@@ -27,7 +27,7 @@ const Project: InferGetStaticPropsType<typeof getStaticProps> = ({
         url={`https://abhinavrajesh.com/projects/${data?.repo}`}
       />
       <Navbar />
-      <div className="flex flex-col px-4 pt-[46px] text-dark dark:text-text_dark dark:bg-[#202124]">
+      <div className="h-full flex px-4 flex-col pt-[46px] text-black dark:text-white dark:bg-gradient-to-tr dark:from-[#111827] dark:to-black">
         <div className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full items-center">
           <h2 className="font-black text-3xl text-center tablet:text-5xl my-[10px] dark:text-white">
             Page under work
@@ -46,8 +46,8 @@ const Project: InferGetStaticPropsType<typeof getStaticProps> = ({
             />
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
