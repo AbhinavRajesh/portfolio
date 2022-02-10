@@ -65,7 +65,7 @@ const About = () => {
       <AboutSection
         content={[
           <div key="hero">
-            I occationally write about technology at my{" "}
+            I occasionally write about technology at my{" "}
             <a
               href="https://blog.abhinavrajesh.com/"
               target="_blank"

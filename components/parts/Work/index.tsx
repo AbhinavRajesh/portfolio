@@ -7,6 +7,24 @@ const workExperience: Parameters<typeof Card>[0][] = [
   {
     title: (
       <div className="flex flex-col">
+        <span className="m-0 leading-[19px]">DevRel Engineering Intern</span>
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="m-0 leading-[17px] text-xs font-bold text-primary_light hover:text-blue-400 transition-colors duration-150 ease-in"
+        >
+          @GitHub
+        </a>
+      </div>
+    ),
+    value: "Feb. 2022 - Present",
+    description:
+      "Working on mini-projects that will help GitHub better serve developers in India",
+  },
+  {
+    title: (
+      <div className="flex flex-col">
         <span className="m-0 leading-[19px]">Software Engineer Intern</span>
         <a
           href="https://growth.cx"
@@ -18,9 +36,9 @@ const workExperience: Parameters<typeof Card>[0][] = [
         </a>
       </div>
     ),
-    value: "Mar. 2021 - Present",
+    value: "Mar. 2021 - Jan. 2022",
     description:
-      "Responsible for making Frontend of their upcoming product using React, TypeScript, AntD and TailwindCSS ",
+      "Responsible for making Frontend of their upcoming product using React, TypeScript, AntD and TailwindCSS",
   },
 ];
 
