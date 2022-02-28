@@ -81,14 +81,16 @@ const ProjectCard = ({
             </p>
           )}
           <div className="mt-[20px]">
-            <a
-              href={live}
-              target="_blank"
-              rel="noopenner noreferrer"
-              className="text-sm text-primary_light font-semibold mr-[10px]"
-            >
-              Live App
-            </a>
+            {live?.length !== 0 && (
+              <a
+                href={live}
+                target="_blank"
+                rel="noopenner noreferrer"
+                className="text-sm text-primary_light font-semibold mr-[10px]"
+              >
+                Live App
+              </a>
+            )}
             <a
               href={source}
               target="_blank"

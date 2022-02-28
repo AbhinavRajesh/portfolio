@@ -9,6 +9,9 @@ module.exports = {
       "media2.giphy.com",
       "media3.giphy.com",
       "media4.giphy.com",
+      "aura-ar.vercel.app",
+      "chatbotish.vercel.app",
+      "sahaay.xyz",
     ],
   },
 };

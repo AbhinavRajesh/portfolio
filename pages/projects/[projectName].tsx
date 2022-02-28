@@ -2,21 +2,28 @@ import HeadMeta from "@components/partials/HeadMeta";
 import Footer from "@components/parts/Footer";
 import Navbar from "@components/parts/Navbar";
 
-import fs from "fs";
-import gifs from "@lib/gifs.json";
-
-import { projects } from "@lib/data";
-import { Project as ProjectType } from "@lib/types";
+import { projects, projectsData } from "@lib/data";
+import { Project as ProjectType, ProjectInDepth } from "@lib/types";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import Loading from "@components/parts/Loading";
+import { createElement } from "react";
+
+interface Data extends ProjectType, Omit<ProjectInDepth, "projectContent"> {
+  projectContent: string;
+}
 
 const Project: InferGetStaticPropsType<typeof getStaticProps> = ({
   data,
-  gifUrl,
 }: {
-  data: ProjectType | undefined;
-  gifUrl: string;
+  data: Data | undefined;
 }) => {
+  const router = useRouter();
+  if (router.isFallback) return <Loading data={data} />;
+
+  const content: any[] = JSON?.parse(data?.projectContent ?? "[]");
+
   return (
     <div className="h-[100vh] font-inter">
       <HeadMeta
@@ -29,22 +36,43 @@ const Project: InferGetStaticPropsType<typeof getStaticProps> = ({
       <Navbar />
       <div className="h-full flex px-4 flex-col pt-[46px] text-black dark:text-white dark:bg-gradient-to-tr dark:from-[#111827] dark:to-black">
         <div className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full items-center">
-          <h2 className="font-black text-3xl text-center tablet:text-5xl my-[10px] dark:text-white">
-            Page under work
+          <h2 className="font-black text-3xl text-left tablet:text-4xl my-[10px] dark:text-white">
+            {data?.title}
           </h2>
-          <p className="text-xl font-semibold">Would be available soon :)</p>
-          <span className="mt-[30px] font-bold">
-            Until then here is some random gif from giphy
-          </span>
-          <div className="relative w-full h-[400px]">
-            <Image
-              layout="responsive"
-              src={gifUrl}
-              height={270}
-              width={480}
-              alt="Random fail gifs from Giphy"
-            />
-          </div>
+          {data?.ogimage && (
+            <div className="mt-6 relative h-auto w-full">
+              <Image
+                src={data?.ogimage ?? ""}
+                alt={data?.title + " image"}
+                width={800}
+                height={400}
+                layout="responsive"
+                quality={100}
+                objectFit={content.length === 0 ? "contain" : "cover"}
+                className="rounded-[10px]"
+              />
+            </div>
+          )}
+          {data?.wip && content.length === 0 ? (
+            <div>
+              <h2>Page under work... Check back soon :)</h2>
+            </div>
+          ) : (
+            <>
+              {content?.map((item: any) =>
+                createElement(
+                  item.type,
+                  { key: item.key, className: item.props.className },
+                  item.props.children
+                )
+              )}
+              {data?.wip && (
+                <p className="text-xl font-semibold mt-[60px]">
+                  Would be available soon :{")"}
+                </p>
+              )}
+            </>
+          )}
         </div>
         <Footer />
       </div>
@@ -53,51 +81,45 @@ const Project: InferGetStaticPropsType<typeof getStaticProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const data: ProjectType | undefined = projects.find(
-    ({ repo }) => params?.projectName === repo
-  );
+  const data: ProjectType | undefined = projects.find(({ repo }) => {
+    return (
+      (params?.projectName as string)?.toLowerCase() === repo.toLowerCase()
+    );
+  });
+  if (!data) {
+    return {
+      redirect: {
+        destination: "/404",
+        statusCode: 404,
+      },
+      props: {
+        data: {},
+      },
+    };
+  }
 
-  const giphy = {
-    baseURL: "https://api.giphy.com/v1/gifs/",
-    apiKey: process.env.NEXT_GIPHY_API,
-    tag: "fails",
-    type: "random",
-    rating: "pg-13",
-  };
-  let giphyURL = encodeURI(
-    giphy.baseURL +
-      giphy.type +
-      "?api_key=" +
-      giphy.apiKey +
-      "&tag=" +
-      giphy.tag +
-      "&rating=" +
-      giphy.rating
-  );
-
-  let gifUrl = "";
-  await fetch(giphyURL)
-    .then(async (res) => {
-      const data = await res.json();
-      gifUrl = data.data?.images?.original?.url;
-      const id = gifUrl.split("/")[gifUrl.split("/").length - 2];
-      const present = gifs.gifs.find((url) => url.includes(id));
-      if (!present) {
-        gifs.gifs.push(gifUrl);
-        fs.writeFileSync("lib/gifs.json", JSON.stringify(gifs, null, 4));
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      gifUrl = gifs.gifs[Math.floor(gifs.gifs.length * Math.random())];
-    });
-
-  return {
-    props: {
-      data,
-      gifUrl,
-    },
-  };
+  const projectName: string = (params?.projectName as string)?.toLowerCase();
+  const projectData = projectsData[projectName];
+  if (projectData) {
+    return {
+      props: {
+        data: {
+          ...data,
+          ...projectData,
+          projectContent: JSON.stringify(projectData?.projectContent),
+        },
+      },
+    };
+  } else {
+    return {
+      props: {
+        data: {
+          ...data,
+          wip: true,
+        },
+      },
+    };
+  }
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
@@ -110,7 +132,7 @@ export const getStaticPaths: GetStaticPaths = () => {
   });
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 

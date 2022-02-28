@@ -1,4 +1,4 @@
-import { Project } from "./types";
+import { Project, ProjectInDepth } from "./types";
 
 export const projects: Project[] = [
   {
@@ -21,6 +21,7 @@ export const projects: Project[] = [
     description:
       "We know our mood changes throughout the days. But what if you could see it? Introducing Aura, an easy to use mood tracking app.",
     ogimage: "https://aura-ar.vercel.app/ogimage.jpg",
+    wip: true,
   },
   {
     user: "AbhinavRajesh",
@@ -41,6 +42,7 @@ export const projects: Project[] = [
     description:
       "Chatbotish is an easy to use widget to add to your amazing web apps to increase user engagement.",
     ogimage: "https://chatbotish.vercel.app/logo192.png",
+    wip: true,
   },
   {
     user: "Nodet-org",
@@ -53,16 +55,48 @@ export const projects: Project[] = [
     description:
       "A webapp for helping people in India to find the resources required such as Oxygen, Beds, Ventilators, etc. during this COVID-19 pandemic",
     ogimage: "https://sahaay.xyz/ogimage.jpg",
+    wip: true,
   },
   {
     user: "AbhinavRajesh",
-    repo: "Classroom",
-    tagline: "Google Classroom Clone",
-    extra: null,
-    isGroupProject: false,
-    tags: ["JavaScript", "React", "ExpressJS", "NodeJS"],
-    title: "A google classroom clone [Under construction]",
-    description: "A minimal google classroom clone under work",
-    ogimage: "",
+    repo: "CryptoStack",
+    tagline: "Decentralized Q&A Platform and NFT Marketplace",
+    extra: "Got 2nd prize in ByteSynergy Hackathon",
+    isGroupProject: true,
+    tags: [
+      "JavaScript",
+      "NextJS",
+      "React",
+      "Solidity",
+      "CELO",
+      "Blockchain",
+      "IPFS",
+      "TailwindCSS",
+      "Truffle",
+    ],
+    title: "Sahaay - A helping hand for people in need",
+    description:
+      "A webapp for helping people in India to find the resources required such as Oxygen, Beds, Ventilators, etc. during this COVID-19 pandemic",
+    ogimage: "https://sahaay.xyz/ogimage.jpg",
+    wip: true,
   },
 ];
+
+export const projectsData: { [projectName: string]: ProjectInDepth } = {
+  aura: {
+    liveLink: "https://aura-ar.tk",
+    sourceCode: "https://github.com/AbhinavRajesh/Aura",
+    mainImage: "",
+    projectContent: [
+      <div key="0" className="mt-[30px]">
+        Aura, an easy to use mood tracking app that takes your daily life&apos;s
+        mood into account. It allows you to understand yourself better and helps
+        you maintain an even mood throughout the day. The app has various
+        features such as graphs, statistics, insights, and ambience sounds to
+        improve your mood.
+      </div>,
+    ],
+    status: "Working on v2",
+    subImages: [],
+  },
+};

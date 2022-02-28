@@ -8,4 +8,14 @@ export interface Project {
   description: string;
   title: string;
   ogimage: string;
+  wip: boolean;
+}
+
+export interface ProjectInDepth {
+  mainImage: string;
+  subImages: string[];
+  liveLink: string;
+  sourceCode: string;
+  status: string;
+  projectContent: string[] | JSX.Element[] | JSX.Element;
 }
