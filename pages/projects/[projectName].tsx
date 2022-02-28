@@ -53,25 +53,23 @@ const Project: InferGetStaticPropsType<typeof getStaticProps> = ({
               />
             </div>
           )}
-          {data?.wip && content.length === 0 ? (
-            <div>
-              <h2>Page under work... Check back soon :)</h2>
-            </div>
+          {content.length !== 0 ? (
+            content?.map((item: any) =>
+              createElement(
+                item.type,
+                { key: item.key, className: item.props.className },
+                item.props.children
+              )
+            )
           ) : (
-            <>
-              {content?.map((item: any) =>
-                createElement(
-                  item.type,
-                  { key: item.key, className: item.props.className },
-                  item.props.children
-                )
-              )}
-              {data?.wip && (
-                <p className="text-xl font-semibold mt-[60px]">
-                  Would be available soon :{")"}
-                </p>
-              )}
-            </>
+            <div key="0" className="mt-[30px]">
+              {data?.description ?? ""}
+            </div>
+          )}
+          {data?.wip && (
+            <p className="text-xl font-semibold mt-[60px]">
+              Updating the page, would be available soon:{")"}
+            </p>
           )}
         </div>
         <Footer />

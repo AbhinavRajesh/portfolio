@@ -74,9 +74,9 @@ export const projects: Project[] = [
       "TailwindCSS",
       "Truffle",
     ],
-    title: "Sahaay - A helping hand for people in need",
+    title: "CryptoStack - A Decentralized Q&A Platform and NFT Marketplace",
     description:
-      "A webapp for helping people in India to find the resources required such as Oxygen, Beds, Ventilators, etc. during this COVID-19 pandemic",
+      "A Decentralized Q&A Platform similar to Stack Exchange but on blockchain! You can find reliable answers as each answer requires some small gas fee and spam answers can be avoided and this app has it's on NFT marketplace",
     ogimage: "https://sahaay.xyz/ogimage.jpg",
     wip: true,
   },
