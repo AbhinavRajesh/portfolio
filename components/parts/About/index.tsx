@@ -116,7 +116,12 @@ const About = () => {
           opacity: 1,
         }}
       >
-        <Button to="/" text="Updates" key="update" extraClassNames="mr-[8px]" />
+        <Button
+          to="/resume/may-2022.pdf"
+          text="Resume"
+          key="update"
+          extraClassNames="mr-[8px]"
+        />
         <Button to="/projects" text="Checkout my projects" key="projects" />
       </motion.div>
     </>

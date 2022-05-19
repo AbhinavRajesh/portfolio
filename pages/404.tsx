@@ -72,20 +72,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       giphy.rating
   );
 
-  let gifUrl = "";
+  let gifUrl: string | null = "";
   await fetch(giphyURL)
     .then(async (res) => {
       const data = await res.json();
       gifUrl = data.data?.images?.original?.url;
-      const id = gifUrl.split("/")[gifUrl.split("/").length - 2];
-      const present = gifs.gifs.find((url) => url.includes(id));
+      const id = gifUrl?.split("/")?.[gifUrl?.split("/")?.length - 2];
+      const present = gifs.gifs.find((url) => url?.includes(id ?? ""));
       if (present) throw Error("Duplicate");
       gifs.gifs.push(gifUrl);
       fs.writeFileSync("lib/gifs.json", JSON.stringify(gifs, null, 4));
     })
     .catch((err) => {
       console.log(err);
-      gifUrl = gifs.gifs[Math.floor(gifs.gifs.length * Math.random())];
+      gifUrl = gifs?.gifs?.[Math.floor(gifs?.gifs?.length * Math.random())];
     });
 
   return {
