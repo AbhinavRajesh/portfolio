@@ -9,9 +9,9 @@ interface Props {
 const CurrentlyPlaying = ({ currentlyPlaying }: Props) => {
   return (
     <div className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full">
-      <h1 className="text-xl font-black text-center border-b mx-auto">
+      <h2 className="text-xl font-black text-center border-b mx-auto">
         Currently Playing
-      </h1>
+      </h2>
       <div className="grid gap-[20px] mt-[30px] grid-cols-2 sm:grid-cols-3">
         <div className="col-start-1 sm:col-start-2 rounded-[6px]">
           <SpotifyCard

@@ -49,7 +49,10 @@ const Projects = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-[20px] mt-[20px]">
+            <div
+              className="grid grid-cols-1 gap-[20px] mt-[20px]"
+              id="projects"
+            >
               {data.map(
                 (
                   {
