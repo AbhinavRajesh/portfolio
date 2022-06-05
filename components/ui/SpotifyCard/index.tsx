@@ -39,7 +39,9 @@ const SpotifyCard = ({
         </div>
       </div>
       <h3 className="font-semibold">
-        {explicit && <MdExplicit className="inline -mt-1 mr-1 text-gray-300" />}
+        {explicit && (
+          <MdExplicit className="inline -mt-[3px] mr-1 text-gray-300" />
+        )}
         {name} •
         {description && (
           <span className="font-normal text-xs text-gray-400 mt-[5px]">

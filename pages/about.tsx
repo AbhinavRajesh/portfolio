@@ -5,22 +5,73 @@ import Navbar from "@components/parts/Navbar";
 import Playlists from "@components/parts/Playlists";
 import TopTracks from "@components/parts/TopTracks";
 import { APP_URL } from "@lib/data";
+import getCurrentlyPlaying from "@lib/spotify/getCurrentlyPlaying";
 import { Spotify } from "@lib/types";
 import axios from "axios";
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
+import { useEffect, useState } from "react";
 import { SpotifyResponse } from "./api/data/spotify";
+import { SpotifyCurrentlyPlayingResponse } from "./api/data/spotify/currently_playing";
 
 interface Props {
   playlists: Spotify.Playlist[];
   topTracks: Spotify.TopTracks[];
-  currentlyPlaying: Spotify.CurrentlyPlaying;
 }
 
-const About: NextPage<any> = ({
-  playlists,
-  topTracks,
-  currentlyPlaying,
-}: Props) => {
+interface CachedCurrentlyPlaying extends Spotify.CurrentlyPlaying {
+  lastUpdated: string;
+}
+
+const About: NextPage<any> = ({ playlists, topTracks }: Props) => {
+  const [isFetching, setIsFetching] = useState<boolean>(false);
+  const [isPageLoading, setIsPageLoading] = useState<boolean>(true);
+  const [currentlyPlaying, setCurrentlyPlaying] =
+    useState<Spotify.CurrentlyPlaying>();
+
+  const getCurrentlyPlayingData = async () => {
+    setIsPageLoading(true);
+    setIsFetching(true);
+    const cachedCurrentlyPlayingString =
+      localStorage.getItem("currentlyPlaying");
+    const cachedCurrentlyPlaying = cachedCurrentlyPlayingString
+      ? ((await JSON.parse(
+          cachedCurrentlyPlayingString
+        )) as CachedCurrentlyPlaying)
+      : null;
+    if (
+      cachedCurrentlyPlaying &&
+      new Date().getTime() / 1000 -
+        parseInt(cachedCurrentlyPlaying.lastUpdated) <
+        60 * 4
+    ) {
+      setCurrentlyPlaying(cachedCurrentlyPlaying);
+      return;
+    }
+    const { data } = await axios.post<SpotifyCurrentlyPlayingResponse>(
+      `${APP_URL}/api/data/spotify/currently_playing`
+    );
+    if (data.success) {
+      const { success, ...rest } = data;
+      localStorage.setItem(
+        "currentlyPlaying",
+        JSON.stringify({
+          ...rest,
+          lastUpdated: new Date().getTime() / 1000,
+        })
+      );
+      setCurrentlyPlaying(rest);
+    }
+    setIsFetching(false);
+    setIsPageLoading(false);
+  };
+
+  useEffect(() => {
+    if (!isFetching && isPageLoading) {
+      getCurrentlyPlayingData();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="h-[100vh] font-inter">
       <HeadMeta
@@ -31,7 +82,6 @@ const About: NextPage<any> = ({
         url=""
       />
       <Navbar />
-      {/* text-dark dark:text-text_dark */}
       <div className="flex px-4 flex-col pt-[86px] text-black dark:text-white dark:bg-gradient-to-tr dark:from-[#111827] dark:to-black min-h-screen">
         <div className="flex flex-col mt-[52px] tablet:max-w-[650px] tablet:mx-auto tablet:w-full">
           <h1 className="text-5xl font-black text-center">Under Work :(</h1>
@@ -50,7 +100,7 @@ const About: NextPage<any> = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   try {
     const { data } = await axios.get<SpotifyResponse>(
       `${APP_URL}/api/data/spotify`,
@@ -64,20 +114,26 @@ export const getServerSideProps: GetServerSideProps = async () => {
     if (data.success) {
       return {
         props: {
-          playlists: data.playlists,
-          topTracks: data.topTracks,
-          currentlyPlaying: data.currentlyPlaying,
+          playlists: data.playlists as Spotify.Playlist[],
+          topTracks: data.topTracks as Spotify.TopTracks[],
         },
+        revalidate: 1 * 60 * 60,
       };
     } else {
       return {
-        props: {},
+        props: {
+          playlists: [],
+          topTracks: [],
+        },
       };
     }
   } catch (error) {
     console.log(error);
     return {
-      props: {},
+      props: {
+        playlists: [],
+        topTracks: [],
+      },
     };
   }
 };
