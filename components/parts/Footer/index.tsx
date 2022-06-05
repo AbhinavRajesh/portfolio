@@ -1,4 +1,5 @@
 import Logo from "@components/ui/Logo";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -11,9 +12,22 @@ const Footer = () => {
             <small className="text-[12px]">Full Stack Developer</small>
           </div>
           <div className="flex flex-col text-dark dark:text-text_dark flex-1">
-            <span>Home</span>
-            <span>Blog</span>
-            <span>Projects</span>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+            <a
+              href="https://blog.abhinavrajesh.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Blog &#x2197;
+            </a>
+            <Link href="/projects">
+              <a>Projects</a>
+            </Link>
           </div>
         </div>
         <span className="text-xs text-center pb-4 font-medium mt-[20px]">

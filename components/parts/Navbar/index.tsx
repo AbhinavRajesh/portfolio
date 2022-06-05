@@ -11,6 +11,11 @@ const Navbar = () => {
               /
             </a>
           </Link>
+          <Link href="/about">
+            <a className="text-sm transition-all duration-300 ease-in-out underline py-1 px-4 rounded-full hover:bg-gray-200 dark:hover:bg-gray-900">
+              /about
+            </a>
+          </Link>
           <Link href="/projects">
             <a className="text-sm transition-all duration-300 ease-in-out underline py-1 px-4 rounded-full hover:bg-gray-200 dark:hover:bg-gray-900">
               /projects
