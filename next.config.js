@@ -12,6 +12,7 @@ module.exports = {
       "aura-ar.vercel.app",
       "chatbotish.vercel.app",
       "sahaay.xyz",
+      "i.scdn.co",
     ],
   },
 };
