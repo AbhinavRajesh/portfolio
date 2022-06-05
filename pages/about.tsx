@@ -5,7 +5,6 @@ import Navbar from "@components/parts/Navbar";
 import Playlists from "@components/parts/Playlists";
 import TopTracks from "@components/parts/TopTracks";
 import { APP_URL } from "@lib/data";
-import getCurrentlyPlaying from "@lib/spotify/getCurrentlyPlaying";
 import { Spotify } from "@lib/types";
 import axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
@@ -47,9 +46,12 @@ const About: NextPage<any> = ({ playlists, topTracks }: Props) => {
       setCurrentlyPlaying(cachedCurrentlyPlaying);
       return;
     }
-    const { data } = await axios.post<SpotifyCurrentlyPlayingResponse>(
-      `${APP_URL}/api/data/spotify/currently_playing`
-    );
+    const response = await fetch(`/api/data/spotify/currently_playing`, {
+      method: "POST",
+      body: null,
+    });
+    const data = (await response.json()) as SpotifyCurrentlyPlayingResponse;
+
     if (data.success) {
       const { success, ...rest } = data;
       localStorage.setItem(
