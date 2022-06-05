@@ -77,8 +77,8 @@ const About: NextPage<any> = ({ playlists, topTracks }: Props) => {
   return (
     <div className="h-[100vh] font-inter">
       <HeadMeta
-        title="Abhinav Rajesh | Full Stack Developer Portfolio"
-        description="This is a collection of websites and web apps that help demonstrate Abhinav's skills and abilities as a web developer."
+        title="About | Abhinav Rajesh"
+        description="All about Abhinav Rajesh. Still a work in progress, meanwhile you can checkout the spotify stats and get to know the music taste of Abhinav!"
         image=""
         keywords=""
         url=""
