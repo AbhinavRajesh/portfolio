@@ -31,6 +31,7 @@ const getTopTracks = async (accessToken: string): Promise<Response> => {
         name: track?.name,
         url: track?.external_urls?.spotify,
         imageUrl: track?.album?.images?.[0]?.url ?? "",
+        explicit: track?.explicit ?? false,
       } as Spotify.TopTracks;
     });
     return {
@@ -38,7 +39,7 @@ const getTopTracks = async (accessToken: string): Promise<Response> => {
       topTracks: topTracks,
     };
   } catch (error: any) {
-    console.log("ERROR getTopTracks >> ", error.response);
+    console.log("ERROR getTopTracks >> ", error);
     return {
       success: false,
       topTracks: [],

@@ -29,6 +29,7 @@ declare namespace Spotify {
     url: string;
     name: string;
     imageUrl: string;
+    explicit: boolean;
   };
 
   type Playlist = {
@@ -45,5 +46,6 @@ declare namespace Spotify {
     artist: string | null;
     url: string | null;
     imageUrl: string | null;
+    explicit: boolean;
   };
 }

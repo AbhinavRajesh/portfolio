@@ -7,6 +7,7 @@ interface Response {
   artist: string | null;
   url: string | null;
   imageUrl: string | null;
+  explicit: boolean;
 }
 
 const getCurrentlyPlaying = async (accessToken: string): Promise<Response> => {
@@ -26,6 +27,7 @@ const getCurrentlyPlaying = async (accessToken: string): Promise<Response> => {
         artist: null,
         url: null,
         imageUrl: null,
+        explicit: false,
       };
     return {
       success: true,
@@ -36,6 +38,7 @@ const getCurrentlyPlaying = async (accessToken: string): Promise<Response> => {
         ?.map((artist: any) => artist?.name)
         .join(", "),
       imageUrl: data?.item?.album?.images?.[0]?.url ?? null,
+      explicit: data?.item?.explicit ?? false,
     };
   } catch (error) {
     return {
@@ -45,6 +48,7 @@ const getCurrentlyPlaying = async (accessToken: string): Promise<Response> => {
       song: null,
       url: null,
       imageUrl: null,
+      explicit: false,
     };
   }
 };
