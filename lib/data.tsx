@@ -100,3 +100,8 @@ export const projectsData: { [projectName: string]: ProjectInDepth } = {
     subImages: [],
   },
 };
+
+export const APP_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://abhinavrajesh.com";

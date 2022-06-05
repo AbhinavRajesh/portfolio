@@ -10,13 +10,18 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "framer-motion": "^5.3.1",
+    "ioredis": "^5.0.6",
     "next": "12.1.0",
+    "querystring": "^0.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-intersection-observer": "^8.32.5",
-    "sass": "^1.43.4"
+    "request": "^2.88.2",
+    "sass": "^1.43.4",
+    "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.11.1",
@@ -25,6 +30,8 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/node": "16.11.7",
     "@types/react": "17.0.35",
+    "@types/request": "^2.48.8",
+    "@types/spotify-web-api-node": "^5.0.7",
     "autoprefixer": "^10.4.0",
     "babel-jest": "^27.3.1",
     "cypress": "^9.6.1",
