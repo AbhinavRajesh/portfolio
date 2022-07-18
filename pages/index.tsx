@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         description="This is a collection of websites and web apps that help demonstrate Abhinav's skills and abilities as a web developer."
         image=""
         keywords=""
-        url=""
+        url="https://abhinavrajesh.com"
       />
       <Navbar />
       {/* text-dark dark:text-text_dark */}
