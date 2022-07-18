@@ -81,7 +81,7 @@ const About: NextPage<any> = ({ playlists, topTracks }: Props) => {
         description="All about Abhinav Rajesh. Still a work in progress, meanwhile you can checkout the spotify stats and get to know the music taste of Abhinav!"
         image=""
         keywords=""
-        url=""
+        url="https://abhinavrajesh.com/about"
       />
       <Navbar />
       <div className="flex px-4 flex-col pt-[86px] text-black dark:text-white dark:bg-gradient-to-tr dark:from-[#111827] dark:to-black min-h-screen">
