@@ -3,9 +3,10 @@ import type { WorkEntry } from "@/features/work-list/work-list";
 
 export const work: WorkEntry[] = [
   {
-    company: "?",
+    company: "Google",
     role: "Software Engineer II",
     period: "May 2026 — Present",
+    companyUrl: "https://google.com",
     tags: ["Full-time", "Hybrid"],
     summary: <>Joining a new team as a fullstack engineer.</>,
   },
