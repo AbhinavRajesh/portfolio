@@ -14,11 +14,15 @@ const Home = () => {
           <span className="font-mono text-xs text-muted">Kochi, IN</span>
         </div>
         <p className="leading-7 text-foreground">
-          Software engineer based in India, most recently at{" "}
+          Software engineer based in India, currently at{" "}
+          <AccentLink href="https://google.com">
+            Google
+          </AccentLink>
+          . Previously worked at{" "}
           <AccentLink href="https://www.victoriassecret.com">
             Victoria&apos;s Secret & Co
           </AccentLink>
-          . Previously consulted for{" "}
+          and consulted for{" "}
           <AccentLink href="https://github.com">GitHub</AccentLink> on projects
           serving millions of developers. I care about fast, accessible web
           experiences — clean UIs backed by solid code.
